@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  IMAGE_NAME: ${{ github.repository.name }}
+  IMAGE_NAME: ${{ github.event.repository.name }}
   IMAGE_TAGS: latest ${{ github.sha }}
   IMAGE_REGISTRY: quay.io
   IMAGE_NAMESPACE: ${{ secrets.REGISTRY_NAMESPACE }}
