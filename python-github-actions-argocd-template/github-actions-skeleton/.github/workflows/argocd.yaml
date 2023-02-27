@@ -28,4 +28,4 @@ jobs:
 
       - name: Create/Update ArgoCD app
         run: |
-          oc apply -n user1-argocd -f manifests/app.yml
+          oc apply -n ${{ secrets.OPENSHIFT_NAMESPACE }} -f manifests/argocd/app.yaml

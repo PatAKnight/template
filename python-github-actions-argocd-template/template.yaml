@@ -44,12 +44,24 @@ spec:
           ui:options:
             allowedKinds:
               - Group
+    - title: Choose a CI method
+      required:
+        - ci
+      properties:
+        ci:
+          title: Select a CI method
+          type: string
+          default: GitHub Actions
+          enum:
+            - ./github-actions-skeleton
+          enumNames:
+            - GitHub Action
   steps:
     - id: template
       name: Generating Component
       action: fetch:template
       input:
-        url: ./skeleton
+        url: ${{ parameters.ci }}
         copyWithoutRender:
           - .github/workflows/
         values:

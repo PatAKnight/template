@@ -1,24 +1,28 @@
-name: Node.js CI
+name: CI
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 env:
-  IMAGE_NAME: ${{ github.event.repository.name }}
+  IMAGE_NAME: ${{ github.repository.name }}
   IMAGE_TAGS: latest ${{ github.sha }}
   IMAGE_REGISTRY: quay.io
-  IMAGE_NAMESPACE: rh_ee_pknight
+  IMAGE_NAMESPACE: ${{ secrets.REGISTRY_NAMESPACE }}
+  USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+  PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
 
 jobs:
-  build:
-
+  build-and-push-image:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Build Image
         id: build-image
@@ -32,8 +36,8 @@ jobs:
       - name: Log in to Quay.io
         uses: redhat-actions/podman-login@v1
         with:
-          username: ${{ secrets.REGISTRY_USER }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+          username: ${{ env.USERNAME }}
+          password: ${{ env.PASSWORD }}
           registry: ${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAMESPACE }}
 
       - name: Push To Quay.io
