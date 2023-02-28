@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: python-golden-path-template
   title: Python Golden Path Template
-  description: Create a starter Python application, choose between GitHub Actions and Tekton, managed by ArgoCD
+  description: Create a starter Python application managed by ArgoCD with the choice between Tekton and GitHub Actions
   tags:
     - recommended
     - python
@@ -28,7 +28,7 @@ spec:
           title: Repository
           type: string
           description: Repository name
-    - title: Provider information about the new component
+    - title: Provide information about the new component
       required:
         - owner
       properties:
@@ -59,19 +59,19 @@ spec:
           enumNames:
             - GitHub Action
             - Tekton
-    - title: Provide information for ArgoCD
+    - title: Provide information for Deployment with ArgoCD
       required:
         - namespace
-        - imageregistry
+        - imagenamespace
       properties:
         namespace:
           title: Namespace
           type: string
           description: The namespace for deploying resources
-        imageregistry:
-          title: Image Registry
+        imagenamespace:
+          title: Image Namespace
           type: string
-          description: Enter the Quay.io Image Registry 
+          description: Enter the Quay.io Image Namespace quay.io/<IMAGE_NAMESPACE>/${{ parameters.repo }} 
   steps:
     - id: template
       name: Generating CI Component
@@ -95,7 +95,7 @@ spec:
           org: ${{ parameters.org }}
           owner: ${{ parameters.owner}}
           namespace: ${{ parameters.namespace }}
-          imageregistry: ${{ parameters.imageregistry }}
+          imagenamespace: ${{ parameters.imagenamespace }}
     
     - id: publish
       name: Publishing to Source Code Repository
