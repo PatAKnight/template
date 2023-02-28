@@ -65,7 +65,7 @@ spec:
           title: Namespace
           type: string
           description: The namespace for deploying resources
-        imagerepo:
+        imageregistry:
           title: Image Repository
           type: string
           description: Enter the Quay.io Image Repository 
@@ -84,7 +84,7 @@ spec:
           org: ${{ parameters.org }}
           owner: ${{ parameters.owner}}
           namespace: ${{ parameters.namespace }}
-          imagerepo: ${{ parameters.imagerepo }}
+          imageregistry: ${{ parameters.imageregistry }}
     
     - id: publish
       name: Publishing to Source Code Repository
