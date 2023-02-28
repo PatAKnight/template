@@ -54,8 +54,10 @@ spec:
           default: GitHub Actions
           enum:
             - ./github-actions-skeleton
+            - ./tekton-skeleton
           enumNames:
             - GitHub Action
+            - Tekton
     - title: Provide information for ArgoCD
       required:
         - namespace
