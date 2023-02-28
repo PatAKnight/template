@@ -56,6 +56,19 @@ spec:
             - ./github-actions-skeleton
           enumNames:
             - GitHub Action
+    - title: Provide information for ArgoCD
+      required:
+        - namespace
+        - imagerepo
+      properties:
+        namespace:
+          title: Namespace
+          type: string
+          description: The namespace for deploying resources
+        imagerepo:
+          title: Image Repository
+          type: string
+          description: Enter the Quay.io Image Repository 
   steps:
     - id: template
       name: Generating Component
@@ -69,7 +82,9 @@ spec:
           description: ${{ parameters.description }}
           destination: ${{ parameters.org }}/${{ parameters.repo }}
           org: ${{ parameters.org }}
-          owner: ${{ parameters. owner}}
+          owner: ${{ parameters.owner}}
+          namespace: ${{ parameters.namespace }}
+          imagerepo: ${{ parameters.imagerepo }}
     
     - id: publish
       name: Publishing to Source Code Repository
