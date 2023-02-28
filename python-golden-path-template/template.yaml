@@ -1,13 +1,14 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: python-github-actions-argocd-template
-  title: Python GitHub Actions ArgoCD
-  description: Create a starter Python application with GitHub Actions and ArgoCD enabled
+  name: python-golden-path-template
+  title: Python Golden Path Template
+  description: Create a starter Python application, choose between GitHub Actions and Tekton, managed by ArgoCD
   tags:
     - recommended
     - python
     - github-actions
+    - tekton
     - argocd
 spec:
   owner: user:janus-authors
