@@ -7,3 +7,4 @@ spec:
   type: url
   targets:
     - https://github.com/PatAKnight/template/blob/main/python-github-actions-argocd-template/template.yaml
+    - https://github.com/PatAKnight/template/blob/main/python-golden-path-template/template.yaml
