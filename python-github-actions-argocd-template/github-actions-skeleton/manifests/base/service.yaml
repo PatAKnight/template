@@ -8,5 +8,5 @@ spec:
       port: 8081
       protocol: TCP
       targetPort: 8081
-selector:
-  app: ${{ values.component_id }}
+  selector:
+    app: ${{ values.component_id }}
