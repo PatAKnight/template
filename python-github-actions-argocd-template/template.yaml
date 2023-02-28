@@ -59,7 +59,7 @@ spec:
     - title: Provide information for ArgoCD
       required:
         - namespace
-        - imagerepo
+        - imageregistry
       properties:
         namespace:
           title: Namespace
