@@ -66,9 +66,9 @@ spec:
           type: string
           description: The namespace for deploying resources
         imageregistry:
-          title: Image Repository
+          title: Image Registry
           type: string
-          description: Enter the Quay.io Image Repository 
+          description: Enter the Quay.io Image Registry 
   steps:
     - id: template
       name: Generating Component
