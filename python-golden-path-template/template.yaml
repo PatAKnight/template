@@ -11,7 +11,7 @@ metadata:
     - tekton
     - argocd
 spec:
-  owner: user:janus-authors
+  owner: janus-idp
   type: service
 
   parameters:
@@ -71,7 +71,7 @@ spec:
         imagenamespace:
           title: Image Namespace
           type: string
-          description: Enter the Quay.io Image Namespace quay.io/<IMAGE_NAMESPACE>/${{ parameters.repo }} 
+          description: Enter the Quay.io Image Namespace quay.io/<IMAGE_NAMESPACE>/<IMAGE_NAME>
   steps:
     - id: template
       name: Generating CI Component
@@ -103,7 +103,7 @@ spec:
       input:
         allowedHosts: ["github.com"]
         description: ${{ parameters.description }}
-        repoUrl: github.com?owner=${{ parameters.org }}&repo=${{ parameters.repo }}
+        repoUrl: github.com/{{ parameters.org }}/{{ parameters.repo }}
         defaultBranch: main
     
     - id: register
