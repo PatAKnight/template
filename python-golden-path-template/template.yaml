@@ -1,7 +1,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: python-golden-path-template
+  name: python-golden-path-template2.0
   title: Python Golden Path Template
   description: Create a starter Python application managed by ArgoCD with the choice between Tekton and GitHub Actions
   tags:
