@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ${{ values.component_id }}
-          image: quay.io/${{ values.imageregistry }}/${{ values.component_id }}:latest
+          image: quay.io/${{ values.imagenamespace }}/${{ values.component_id }}:latest
           ports:
             - name: http
               containerPort: 8081
