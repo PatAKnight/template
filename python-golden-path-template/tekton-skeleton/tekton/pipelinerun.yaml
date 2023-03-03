@@ -21,7 +21,7 @@ spec:
     name: ${{ values.component_id }}-pipeline
   serviceAccountName: pipeline
   workspaces:
-    - name: ${{ values.component_id }}-workspace
+    - name: source-folder
       volumeClaimTemplate:
         spec:
           accessModes:
