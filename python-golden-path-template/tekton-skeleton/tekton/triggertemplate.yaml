@@ -7,12 +7,12 @@ spec:
   params:
     - name: git-revision
       description: The git revision
-      default: ${{ .values.defaultBranch }}
+      default: ${{ values.defaultBranch }}
     - name: git-repo-url
       description: The repo url
     - name: output-image
       description: reference of the image that will get created
-      default: quay.io/${{ .values.imagenamespace }}/${{ .values.component_id }}
+      default: quay.io/${{ values.imagenamespace }}/${{ values.component_id }}
   resourcetemplates:
     - apiVersion: tekton.dev/v1beta1
       kind: PipelineRun

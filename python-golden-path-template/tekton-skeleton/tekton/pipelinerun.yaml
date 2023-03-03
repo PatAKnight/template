@@ -12,11 +12,11 @@ metadata:
 spec:
   params:
     - name: source-repo
-      value: 'https://github.com/${{ .values.org }}/${{ .values.component_id }}.git'
+      value: 'https://github.com/${{ values.org }}/${{ values.component_id }}.git'
     - name: source-branch
-      value: ${{ .values.defaultBranch }}
+      value: ${{ values.defaultBranch }}
     - name: output-image
-      value: quay.io/${{ .values.imagenamespace }}/${{ values.component_id}}
+      value: quay.io/${{ values.imagenamespace }}/${{ values.component_id}}
   pipelineRef:
     name: ${{ values.component_id }}-pipeline
   serviceAccountName: pipeline
