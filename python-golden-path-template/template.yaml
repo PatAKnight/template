@@ -103,7 +103,7 @@ spec:
       input:
         allowedHosts: ["github.com"]
         description: ${{ parameters.description }}
-        repoUrl: github.com/${{ parameters.org }}/${{ parameters.repo }}
+        repoUrl: github.com?owner=${{ parameters.org }}&repo=${{ parameters.repo }}
         defaultBranch: main
     
     - id: register
