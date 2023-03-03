@@ -10,14 +10,14 @@ spec:
     - name: source-repo
       description: source repo that contains the application code
       type: string
-      default: https://${{ .values.destination }} #This needs to change
+      default: https://github.com/${{ .values.org }}/${{ .values.component_id }}
     - name: source-branch
       description: source branch to build from
       default: ${{ .values.defaultBranch }}
       type: string
     - name: output-image
       description: reference of the image that will get created
-      default: quay.io/${{ .values.imagenamespace }}/${{ .values.component_id }} #This needs to change
+      default: quay.io/${{ .values.imagenamespace }}/${{ .values.component_id }}
       type: string
   tasks:
     - name: s2i-python
