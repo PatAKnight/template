@@ -2,6 +2,7 @@ apiVersion: triggers.tekton.dev/v1alpha1
 kind: EventListener
 metadata:
   name: ${{ values.component_id }}-el
+  namespace: ${{ values.namespace }}
 spec:
   serviceAccountName: pipeline
   triggers:
