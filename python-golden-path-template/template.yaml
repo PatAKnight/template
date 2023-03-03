@@ -53,7 +53,7 @@ spec:
           title: Select a CI method
           type: string
           default: GitHub Actions
-          description: This will create a simple pipeline base on the selected choice
+          description: This will create a simple pipeline based on the selected choice
           enum:
             - ./github-actions-skeleton
             - ./tekton-skeleton
