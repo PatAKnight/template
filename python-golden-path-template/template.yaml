@@ -80,6 +80,13 @@ spec:
         url: ${{ parameters.ci }}
         copyWithoutRender:
           - .github/workflows/
+        values:
+          component_id: ${{ parameters.repo }}
+          org: ${{ parameters.org }}
+          owner: ${{ parameters.owner}}
+          namespace: ${{ parameters.namespace }}
+          defaultBranch: main
+          imagenamespace: ${{ parameters.imagenamespace }}
 
     - id: template
       name: Generating Component
