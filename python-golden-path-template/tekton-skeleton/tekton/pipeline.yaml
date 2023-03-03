@@ -20,6 +20,18 @@ spec:
       default: quay.io/${{ values.imagenamespace }}/${{ values.component_id }}
       type: string
   tasks:
+    - name: git-clone
+      params:
+        - name: url
+          value: $(params.source-repo)
+        - name: revision
+          value: $(params.source-branch)
+      taskRef:
+        kind: ClusterTask
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: source-folder
     - name: s2i-python
       params:
         - name: VERSION
