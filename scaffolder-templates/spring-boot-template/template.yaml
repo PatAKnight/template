@@ -48,18 +48,18 @@ spec:
         group_id:
           title: Group ID
           type: string
-          default: com.janus
-          description: Maven Group ID
+          default: io.janus
+          description: Maven Group ID eg (io.janus)
         artifact_id:
           title: Artifact ID
           type: string
           default: spring-boot-app
-          description: Maven Artifcate ID
+          description: Maven Artifact ID
         java_package_name:
           title: Java Package Namespace
           type: string
-          default: com.janus.spring-boot-app
-          description: Name for the Java Package
+          default: io/janus/spring-boot-app
+          description: Name for the Java Package (ensure to use the / character as this is used for folder structure) should match Group ID + . + Artifact ID
     - title: Provide information about the ArgoCD deployment
       required:
         - namespace
