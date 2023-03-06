@@ -28,6 +28,9 @@ spec:
     - title: Provide information about the new component
       required:
         - owner
+        - group_id
+        - artifact_id
+        - java_package_name
       properties:
         description:
           title: Description
@@ -42,6 +45,21 @@ spec:
           ui:options:
             allowedKinds:
               - Group
+        group_id:
+          title: Group ID
+          type: string
+          default: com.janus
+          description: Maven Group ID
+        artifact_id:
+          title: Artifact ID
+          type: string
+          default: spring-boot-app
+          description: Maven Artifcate ID
+        java_package_name:
+          title: Java Package Namespace
+          type: string
+          default: com.janus.spring-boot-app
+          description: Name for the Java Package
     - title: Provide information about the ArgoCD deployment
       required:
         - namespace
@@ -105,6 +123,9 @@ spec:
           namespace: ${{ parameters.namespace }}
           image_namespace: ${{ parameters.imageNamespace }}
           port: ${{ parameters.port }}
+          group_id: ${{ parameters.group_id }}
+          artifact_id: ${{ parameters.artifact_id }}
+          java_package_name: ${{ parameters.java_package_name }}
 
     - id: catalog-template
       name: Generating catalog-info.yaml
