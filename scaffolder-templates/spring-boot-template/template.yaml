@@ -6,9 +6,9 @@ metadata:
   description: Create a starter Spring Boot application managed by ArgoCD with a choice between Tekton and GitHub Actions for a CI method
   tags:
     - recommended
-    - Spring Boot
-    - Java
-    - Maven
+    - spring-boot
+    - java
+    - maven
 spec:
   owner: janus-authors
   type: service
